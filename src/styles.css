@@ -1,0 +1,33 @@
+/* glyph font */
+@font-face {
+	font-family: 'NMS-Glyphs-Mono';
+	src: local('NMS-Glyphs-Mono'), url('./fonts/NMS-Glyphs-Mono.ttf') format('truetype');
+}
+
+html,
+body {
+	font-family: sans-serif;
+}
+
+.container {
+	margin-block-start: 1rem;
+	max-width: 40rem;
+}
+
+nav button {
+	width: auto;
+}
+
+.title {
+	text-align: center;
+	margin-block-end: 2rem;
+}
+
+.glyphs {
+	font-family: 'NMS-Glyphs-Mono';
+	font-size: 3rem;
+}
+
+.font-size-small {
+	font-size: 0.75rem;
+}
