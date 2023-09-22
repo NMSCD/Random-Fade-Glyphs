@@ -1,7 +1,7 @@
 import '@picocss/pico';
 import './styles.css'
 // the order of the CSS imports is IMPORTANT, DO NOT change it!!!
-import { getRandomGlyphs } from './logic/glyphs';
+import { generateCubeGlyphs, getRandomGlyphs } from './logic/glyphs';
 import { switchTheme } from './logic/theme';
 
 interface Elements {
@@ -9,6 +9,7 @@ interface Elements {
 	galaxyInput?: HTMLSelectElement;
 	die?: HTMLButtonElement;
 	glyphOutput?: HTMLOutputElement;
+	glyphOutputAdditional?: HTMLUListElement,
 }
 
 const ids: { [key: string]: string } = {
@@ -16,6 +17,7 @@ const ids: { [key: string]: string } = {
 	galaxyInput: 'galaxyInput',
 	die: 'die',
 	glyphOutput: 'glyphOutput',
+	glyphOutputAdditional: 'glyphOutputAdditional',
 }
 
 const elements: Elements = {};
@@ -37,6 +39,18 @@ function showRandomGlyphs(): void {
 
 function displayGlyphs(glyphs: string): void {
 	const output = elements.glyphOutput;
-	if (!output) return;
+	const additionalOutput = elements.glyphOutputAdditional;
+	if (!output || !additionalOutput) return;
 	output.innerText = glyphs.toUpperCase();
+
+	const additionalGlyphs = generateCubeGlyphs(glyphs);
+	const htmlCode = [];
+	for (const glyph of additionalGlyphs) {
+		const li = document.createElement('li');
+		li.classList.add('glyphs');
+		li.innerText = glyph.toUpperCase();
+		htmlCode.push(li.outerHTML);
+	}
+
+	additionalOutput.innerHTML = htmlCode.join('');
 }
