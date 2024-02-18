@@ -78,8 +78,6 @@ export function generateCubeGlyphs(glyphs: string): string[] {
 	cubeCoords.push([yIsMax ? yDec - 1 : yDec + 1, zIsMax ? zDec - 1 : zDec + 1, xDec]);	// y + z
 	cubeCoords.push([yIsMax ? yDec - 1 : yDec + 1, zIsMax ? zDec - 1 : zDec + 1, xIsMax ? xDec - 1 : xDec + 1]);	// y + x + z
 
-	console.log(cubeCoords)
-
 	const hexCubeCoords: string[][] = cubeCoords.map(item => convertArrayToHexGlyphs(item));
 
 	return hexCubeCoords.map(item => getRandomPlanet() + getRandomSIV() + item.join(''));
