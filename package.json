@@ -13,7 +13,7 @@
     "@types/node": "^22.13.12",
     "prettier": "^3.5.3",
     "typescript": "^5.8.2",
-    "vite": "^6.2.2"
+    "vite": "^6.2.3"
   },
   "dependencies": {
     "@picocss/pico": "^2.1.1"
